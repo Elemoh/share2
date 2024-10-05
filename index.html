@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport">
+    <title>JAMB PORTAL</title>
+    <link rel="icon" href="https://i.imgur.com/J7viPkK.png" type="image/png">
+    
+    
+    <link rel="icon" href="https://i0.wp.com/campusinformant.com.ng/wp-content/uploads/2024/10/JAMB-2025-Form-Start-Date-Latest-Updates-1.jpg" type="image/jpeg">
+
+ <meta property="og:site_name" content="JAMB PORTAL">
+ <meta name="description" content="JAMB Registration 2025, REGISTER FOR 2025 JAMB,">
+ <meta property="og:title" content="JAMB 2025 PROFILE PORTAL">
+ <meta property="og:url" content="index.php">
+ <meta property="og:description" content="ALL JAMB STUDENTs ARE TO LOGIN WITH THEIR MOBILE NUMBER FOR JAMB QUESTIONS AND ANSWERS">
+ <meta property="og:image" content="https://campusinformant.com.ng/wp-content/uploads/2024/10/JAMB-2025-Form-Start-Date-Latest-Updates-1.jpg">
+
+
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="indext_style.css" rel="stylesheet">
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background: #e0e0e0;
+            border-radius: 25px;
+            margin: 20px 0;
+        }
+
+        .progress {
+            height: 25px;
+            width: 0;
+            background: #4caf50;
+            border-radius: 25px;
+            transition: width 0.3s;
+        }
+
+        /* New styles for the share button */
+        .share-btn {
+            background-color: red; /* Red background */
+            color: white; /* White text */
+            border: none; /* No border */
+            padding: 10px 20px; /* Padding */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 16px; /* Font size */
+        }
+
+        .share-btn:hover {
+            background-color: darkred; /* Darker red on hover */
+        }
+    </style>
+</head>
+<body id="bg" style="background-image: url(jb1.jpg)">
+    <div style="text-align:center; padding-top:50px;">
+        <img src="download.png" width="110px" height="120px" alt="logo">
+    </div>
+    
+    <p style="line-height: 1; padding-top:10px; color:#1e8b09; font-size: 40px; font-family:Impact; font-weight: bolder;" class="text-center">
+        2025 JAMB
+    </p>
+
+    <div class="form-area">
+        <div style="line-height: 1; padding-top:10px; color:#8b0909;" class="text-center">
+            <h3>Start Registration</h3>
+        </div>
+        <label>With your Mobile Number</label>
+        <div class="input-group no-border">
+            <div class="input-group-append">
+                <div class="input-group-text" style="background-color:white;">
+                    <img src="call.png" width="12px" height="15">
+                </div>
+            </div>
+            <input type="tel" class="form-control" name="phone" maxlength="11" minlength="11" placeholder="Mobile Number..." required pattern="\d{11}" title="Please enter an 11-digit mobile number." />
+        </div>
+        <br>
+        <button id="start-btn" class="btn btn-success">Start</button>
+        <div id="processing" class="hidden">
+            <img src="https://media.tenor.com/t5DMW5PI8mgAAAAj/loading-green-loading.gif" alt="Loading..." style="width: 50px; height: auto; margin-right: 10px;">
+            Processing...
+        </div>
+        
+        <div id="message" class="hidden"></div>
+        <div id="progress-bar" class="progress-bar hidden">
+            <div id="progress" class="progress"></div>
+        </div>
+        <button id="share-btn" class="hidden share-btn">Share on WhatsApp</button> <!-- Updated class here -->
+    </div>
+
+    <script>
+        let shareCount = 0;
+        const progressSteps = [10, 30, 50, 70, 100]; // Define the percentages for each step
+        const progressBar = document.getElementById('progress');
+        const message = document.getElementById('message');
+        const processing = document.getElementById('processing');
+        const progressBarContainer = document.getElementById('progress-bar');
+        const shareButton = document.getElementById('share-btn');
+
+        document.getElementById('start-btn').onclick = function() {
+            const userNumber = document.querySelector('input[name="phone"]').value;
+
+            if (!/^\d{11}$/.test(userNumber)) {
+                alert("Please enter a valid 11-digit mobile number.");
+                return;
+            }
+
+            processing.classList.remove('hidden');
+            setTimeout(() => {
+                processing.classList.add('hidden');
+                showMessage(userNumber);
+            }, 2000); // Simulate processing for 2 seconds
+        };
+
+        function showMessage(userNumber) {
+            message.innerHTML = `<div style="font-family: Arial, sans-serif; font-size: 16px; color: #333; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
+    Dear <strong style="color: #2c3e50;">${userNumber}</strong>, your JAMB Profile Code will be generated soon. You will receive it via SMS. <Center> <img src="https://www.shareicon.net/data/2016/07/24/801257_sms_512x512.png" alt="SMS Logo" style="width: 70px; height: auto; display: block; margin: 10px 0;"></center>
+    <br>
+    <strong style="color: #e74c3c;">How to proceed:</strong><br>
+    <ol style="margin: 10px 0; padding-left: 20px;">
+        <li style="margin-bottom: 5px;">Share this  Portal  with <h6 style="color: #e74c3c;"> 5 Groups, 5 Friends and post to WhatsApp  Status</h6> (Click on the "SHARE" icon below).</li>
+        <li style="margin-bottom: 5px;">You will be redirected automatically to our "GENERAL" page after the GREEN verification bar is filled.</li>
+    </ol>
+</div>
+`;
+            message.classList.remove('hidden');
+            progressBarContainer.classList.remove('hidden');
+            shareButton.classList.remove('hidden');
+        }
+
+        
+        shareButton.onclick = function() {
+            if (shareCount < 3) {
+                shareCount++;
+                const whatsappLink = `https://api.whatsapp.com/send?text=2025%20JAMB%20REGISTRATION%0A%0A_
+                How%20to%20Register%20for%202025%20JAMB%20Examination_%0A%0A*To%20get%20Profile%20Code*%0A_
+                click%20on%20this%20link:%20https://registration2025.vercel.app/`;
+                window.open(whatsappLink, '_blank');
+
+                updateProgress();
+            }
+
+            if (shareCount === 3) {
+                message.innerHTML += "<br>You've shared enough! Redirecting...";
+                setTimeout(() => {
+                    window.location.href = 'https://chat.whatsapp.com/DH1H1iAgIeRCpk3spqnVlR'; // Update to your general page link
+                }, 2000);
+            }
+        };
+
+        function updateProgress() {
+            const percentage = progressSteps[shareCount - 1]; // Get the correct percentage based on shareCount
+            progressBar.style.width = percentage + '%';
+        }
+    </script>
+</body>
+</html>

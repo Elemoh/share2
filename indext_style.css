@@ -1,0 +1,45 @@
+<style type="text/css">
+	input::placeholder{color:red;}
+	.btn-success{color:white;
+        border-radius:5px 5px 5px 5px;
+         background:#114d05;
+	    font-weight:bold;
+		cursor:pointer;
+		width:100%;
+		border:1px solid #0d3c04;
+		padding:10px 20px 10px 20px;}
+   .btn-success:hover{background-color:#083200;}
+   .inp{padding-top:5px}
+   .form-area{
+        width:320px;
+        height:270px;
+        margin:0 auto;
+        position:relative;
+        background:rgba(0,0,0,0.1);
+        text-align:center;
+        margin-top:30px;
+        padding:25px;
+ box-shadow:inset 0 -3em 3em rgba(0,0,0,0.2),
+ 0 0 0 2px rgba(200,200,200),
+ 0.3em 0.3em 1em rgba(0,0,0,0.5)}
+@media (max-width:360px){
+	  .form-area{
+        width:300px;
+        height:270px;
+        margin:0 auto;
+        position:relative;
+        background:rgba(0,0,0,0.1);
+        text-align:center;
+        margin-top:10px;
+        padding:25px;
+   box-shadow:inset 0 -3em 3em rgba(0,0,0,0.2),0 0 0 2px rgba(200,200,200),0.3em 0.3em 1em rgba(0,0,0,0.5)
+   }
+  }
+      .tex{color:yellow;}
+	 #feed{color:white;
+     text-align:center;
+	  font-size:12px;
+	  padding:1%;   
+	  background-color:green;
+	  font-weight:4px;}
+	</style>
